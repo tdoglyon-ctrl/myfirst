@@ -29,7 +29,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
   int _counter = 0;
-  final Set<Marker> _markers = {};
+  final Set<Marker> _markers = {
+    Marker(markerId:MarkerId("first_marker"), position: LatLng(39.2090, -76.0660), 
+    infoWindow: InfoWindow(title: "Marker 1", snippet: "test")),
+  };
 
   void _incrementCounter() {
     setState(() {
@@ -94,13 +97,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 600,
               child: GoogleMap(
-                initialCameraPosition: const CameraPosition(
+                initialCameraPosition: CameraPosition(
                   target: LatLng(39.2090, -76.0660),
                   zoom: 12,
                 ),
                 markers: _markers,
-                mapType: MapType.normal,
-                zoomControlsEnabled: true,
+               // mapType: MapType.normal,
+               // zoomControlsEnabled: true,
               ),
             ),
           ],
